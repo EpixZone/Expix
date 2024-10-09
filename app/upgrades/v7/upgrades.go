@@ -34,7 +34,7 @@ func CreateUpgradeHandler(
 
 		coinswapParams := coinswaptypes.DefaultParams()
 		coinswapKeeper.SetParams(sdkCtx, coinswapParams)
-		coinswapKeeper.SetStandardDenom(sdkCtx, "acanto")
+		coinswapKeeper.SetStandardDenom(sdkCtx, "aepix")
 
 		// Leave modules are as-is to avoid running InitGenesis.
 		logger.Debug("running module migrations ...")

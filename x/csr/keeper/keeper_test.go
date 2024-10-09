@@ -82,7 +82,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	require.NoError(t, err)
 
 	suite.address = common.BytesToAddress(priv.PubKey().Address().Bytes())
-	suite.denom = "acanto"
+	suite.denom = "aepix"
 
 	// consensus key
 	pubKey := cosmosed25519.GenPrivKey().PubKey()

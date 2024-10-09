@@ -38,11 +38,11 @@ cantod keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
 rem Set moniker and chain-id for canto (Moniker can be anything, chain-id must be an integer)
 cantod init %MONIKER% --chain-id %CHAINID% 
 
-rem Change parameter token denominations to acanto
-cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"acanto\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"acanto\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"acanto\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"acanto\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+rem Change parameter token denominations to aepix
+cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"aepix\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"aepix\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"aepix\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"aepix\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
 
 rem increase block time (?)
 cat %GENESIS% | jq ".consensus[\"params\"][\"block\"][\"time_iota_ms\"]=\"30000\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
@@ -54,10 +54,10 @@ rem setup
 sed -i "s/create_empty_blocks = true/create_empty_blocks = false/g" %ETHCONFIG%
 
 rem Allocate genesis accounts (cosmos formatted addresses)
-cantod add-genesis-account %KEY% 100000000000000000000000000acanto --keyring-backend %KEYRING%
+cantod add-genesis-account %KEY% 100000000000000000000000000aepix --keyring-backend %KEYRING%
 
 rem Sign genesis transaction
-cantod gentx %KEY% 1000000000000000000000acanto --keyring-backend %KEYRING% --chain-id %CHAINID%
+cantod gentx %KEY% 1000000000000000000000aepix --keyring-backend %KEYRING% --chain-id %CHAINID%
 
 rem Collect genesis tx
 cantod collect-gentxs
@@ -68,4 +68,4 @@ cantod validate-genesis
 
 
 rem Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-cantod start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001acanto --chain-id %CHAINID%
+cantod start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001aepix --chain-id %CHAINID%

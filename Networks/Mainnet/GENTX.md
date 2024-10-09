@@ -21,7 +21,7 @@ wget https://github.com/Canto-Network/Canto/raw/genesis/Networks/Mainnet/genesis
 A GENTX is a genesis transaction that adds a validator node to the genesis file.
 
 ```bash
-cantod gentx <key_name> <token-amount>acanto --chain-id=canto_7700-1 --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
+cantod gentx <key_name> <token-amount>aepix --chain-id=canto_7700-1 --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
 ```
 
 -   Fork [Canto](https://github.com/Canto-Network/Canto)

@@ -103,7 +103,7 @@ var _ = Describe("ERC20: Converting", Ordered, func() {
 		BeforeEach(func() {
 			_, pair = s.setupRegisterCoin()
 			coin = sdk.NewCoin(pair.Denom, amt)
-			denom := "acanto"
+			denom := "aepix"
 
 			err := testutil.FundAccount(s.app.BankKeeper, s.ctx, accAddr, sdk.NewCoins(sdk.NewCoin(denom, sdk.TokensFromConsensusPower(100, ethermint.PowerReduction))))
 			s.Require().NoError(err)
@@ -162,7 +162,7 @@ var _ = Describe("ERC20: Converting", Ordered, func() {
 			id := s.app.Erc20Keeper.GetTokenPairID(s.ctx, contract.String())
 			tokenPair, _ = s.app.Erc20Keeper.GetTokenPair(s.ctx, id)
 			coin = sdk.NewCoin(tokenPair.Denom, amt)
-			denom := "acanto" //use default denom for claimsDenom
+			denom := "aepix" //use default denom for claimsDenom
 
 			err := testutil.FundAccount(s.app.BankKeeper, s.ctx, accAddr, sdk.NewCoins(sdk.NewCoin(denom, sdkmath.NewIntWithDecimal(1, 17))))
 			s.Require().NoError(err)
@@ -241,7 +241,7 @@ func finalizeBlock(priv *ethsecp256k1.PrivKey, msgs ...sdk.Msg) (*abci.ResponseF
 
 	accountAddress := sdk.AccAddress(priv.PubKey().Address().Bytes())
 	// denom := s.app.ClaimsKeeper.GetParams(s.ctx).ClaimsDenom
-	denom := "acanto"
+	denom := "aepix"
 
 	txBuilder := encodingConfig.TxConfig.NewTxBuilder()
 

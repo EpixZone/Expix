@@ -275,7 +275,7 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".cantod")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".epixd")
 
 	// manually update the power reduction by replacing micro (u) -> atto (a) Canto
 	sdk.DefaultPowerReduction = ethermint.PowerReduction

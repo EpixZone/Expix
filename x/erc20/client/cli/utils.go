@@ -39,7 +39,7 @@ func ParseMetadata(cdc codec.JSONCodec, metadataFile string) (banktypes.Metadata
 func AddGovPropFlagsToCmd(cmd *cobra.Command) {
 	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
 	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
-	cmd.Flags().String(cli.FlagDeposit, "1acanto", "deposit of proposal")
+	cmd.Flags().String(cli.FlagDeposit, "1aepix", "deposit of proposal")
 	cmd.Flags().String(FlagAuthority, "", "The address of the upgrade module authority (defaults to gov)")
 
 	if err := cmd.MarkFlagRequired(cli.FlagTitle); err != nil {

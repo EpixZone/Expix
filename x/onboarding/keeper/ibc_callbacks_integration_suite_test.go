@@ -63,7 +63,7 @@ func (suite *IBCTestingSuite) SetupTest() {
 	suite.coordinator.CommitNBlocks(suite.IBCGravityChain, 2)
 	suite.coordinator.CommitNBlocks(suite.IBCCosmosChain, 2)
 
-	// Mint coins on the gravity side which we'll use to unlock our acanto
+	// Mint coins on the gravity side which we'll use to unlock our aepix
 	coinUsdc := sdk.NewCoin("uUSDC", sdkmath.NewIntWithDecimal(10000, 6))
 	coinUsdt := sdk.NewCoin("uUSDT", sdkmath.NewIntWithDecimal(10000, 6))
 	coins := sdk.NewCoins(coinUsdc, coinUsdt)
@@ -72,7 +72,7 @@ func (suite *IBCTestingSuite) SetupTest() {
 	err = suite.IBCGravityChain.GetSimApp().BankKeeper.SendCoinsFromModuleToAccount(suite.IBCGravityChain.GetContext(), minttypes.ModuleName, suite.IBCGravityChain.SenderAccount.GetAddress(), coins)
 	suite.Require().NoError(err)
 
-	// Mint coins on the cosmos side which we'll use to unlock our acanto
+	// Mint coins on the cosmos side which we'll use to unlock our aepix
 	coinAtom := sdk.NewCoin("uatom", sdkmath.NewIntWithDecimal(10000, 6))
 	coins = sdk.NewCoins(coinAtom)
 	err = suite.IBCCosmosChain.GetSimApp().BankKeeper.MintCoins(suite.IBCCosmosChain.GetContext(), minttypes.ModuleName, coins)
@@ -120,15 +120,15 @@ func (suite *IBCTestingSuite) setupRegisterCoin(metadata banktypes.Metadata) *er
 	return pair
 }
 
-// CreatePool creates a pool with acanto and the given denom
+// CreatePool creates a pool with aepix and the given denom
 func (suite *IBCTestingSuite) CreatePool(denom string) {
-	coincanto := sdk.NewCoin("acanto", sdkmath.NewIntWithDecimal(10000, 18))
+	coincanto := sdk.NewCoin("aepix", sdkmath.NewIntWithDecimal(10000, 18))
 	coinIBC := sdk.NewCoin(denom, sdkmath.NewIntWithDecimal(10000, 6))
 	coins := sdk.NewCoins(coincanto, coinIBC)
 	suite.FundCantoChain(coins)
 
 	coinswapKeeper := suite.cantoChain.App.(*app.Canto).CoinswapKeeper
-	coinswapKeeper.SetStandardDenom(suite.cantoChain.GetContext(), "acanto")
+	coinswapKeeper.SetStandardDenom(suite.cantoChain.GetContext(), "aepix")
 	coinswapParams := coinswapKeeper.GetParams(suite.cantoChain.GetContext())
 	coinswapParams.MaxSwapAmount = sdk.NewCoins(sdk.NewCoin(denom, sdkmath.NewIntWithDecimal(10, 6)))
 	coinswapKeeper.SetParams(suite.cantoChain.GetContext(), coinswapParams)

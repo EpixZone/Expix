@@ -31,12 +31,12 @@ cantod keys add $KEY3 --keyring-backend $KEYRING --algo $KEYALGO
 # Set moniker and chain-id for Canto (Moniker can be anything, chain-id must be an integer)
 cantod init $MONIKER --chain-id $CHAINID
 
-# Change parameter token denominations to acanto
-cat $HOME/.cantod/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="acanto"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
-cat $HOME/.cantod/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="acanto"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
-cat $HOME/.cantod/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="acanto"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
-cat $HOME/.cantod/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="acanto"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
-cat $HOME/.cantod/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="acanto"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
+# Change parameter token denominations to aepix
+cat $HOME/.cantod/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="aepix"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
+cat $HOME/.cantod/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="aepix"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
+cat $HOME/.cantod/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="aepix"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
+cat $HOME/.cantod/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="aepix"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
+cat $HOME/.cantod/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="aepix"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
 
 # Change voting params so that submitted proposals pass immediately for testing
 cat $HOME/.cantod/config/genesis.json| jq '.app_state.gov.voting_params.voting_period="30s"' > $HOME/.cantod/config/tmp_genesis.json && mv $HOME/.cantod/config/tmp_genesis.json $HOME/.cantod/config/genesis.json
@@ -74,9 +74,9 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
-cantod add-genesis-account $KEY1 1050000000000000000000000000acanto --keyring-backend $KEYRING
-cantod add-genesis-account $KEY2 1000000000000000000000000000acanto --keyring-backend $KEYRING
-cantod add-genesis-account $KEY3 1000000000000000000000000000acanto --keyring-backend $KEYRING
+cantod add-genesis-account $KEY1 1050000000000000000000000000aepix --keyring-backend $KEYRING
+cantod add-genesis-account $KEY2 1000000000000000000000000000aepix --keyring-backend $KEYRING
+cantod add-genesis-account $KEY3 1000000000000000000000000000aepix --keyring-backend $KEYRING
 
 
 
@@ -91,8 +91,8 @@ echo $KEYRING
 echo $KEY1
 # Sign genesis transaction
 mkdir $HOME/.cantod/config/gentx
-cantod gentx $KEY1 900000000000000000000000acanto --keyring-backend $KEYRING --chain-id $CHAINID --output-document $HOME/.cantod/config/gentx/gentx-1.json
-#cantod gentx $KEY2 1000000000000000000000acanto --keyring-backend $KEYRING --chain-id $CHAINID
+cantod gentx $KEY1 900000000000000000000000aepix --keyring-backend $KEYRING --chain-id $CHAINID --output-document $HOME/.cantod/config/gentx/gentx-1.json
+#cantod gentx $KEY2 1000000000000000000000aepix --keyring-backend $KEYRING --chain-id $CHAINID
 
 # Collect genesis tx
 cantod collect-gentxs
@@ -105,5 +105,5 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-#cantod start --pruning=nothing --trace --log_level trace --minimum-gas-prices=1.000acanto --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable true --api.enabled-unsafe-cors true
+#cantod start --pruning=nothing --trace --log_level trace --minimum-gas-prices=1.000aepix --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable true --api.enabled-unsafe-cors true
 

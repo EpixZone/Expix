@@ -70,7 +70,7 @@ init_func() {
     "$PWD"/build/cantod keys add $KEY"$i" --keyring-backend test --home "$DATA_DIR$i" --no-backup --algo "eth_secp256k1"
     "$PWD"/build/cantod init $MONIKER --chain-id $CHAINID --home "$DATA_DIR$i"
     "$PWD"/build/cantod add-genesis-account \
-    "$("$PWD"/build/cantod keys show "$KEY$i" --keyring-backend test -a --home "$DATA_DIR$i")" 1000000000000000000acanto,1000000000000000000stake \
+    "$("$PWD"/build/cantod keys show "$KEY$i" --keyring-backend test -a --home "$DATA_DIR$i")" 1000000000000000000aepix,1000000000000000000stake \
     --keyring-backend test --home "$DATA_DIR$i"
     "$PWD"/build/cantod gentx "$KEY$i" 1000000000000000000stake --chain-id $CHAINID --keyring-backend test --home "$DATA_DIR$i"
     "$PWD"/build/cantod collect-gentxs --home "$DATA_DIR$i"

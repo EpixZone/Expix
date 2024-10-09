@@ -1,14 +1,14 @@
 accounts:
   - name: alice
-    coins: ["100000000uatom", "100000000000000000000acanto"]
+    coins: ["100000000uatom", "100000000000000000000aepix"]
   - name: bob
-    coins: ["5000000000000acanto"]
+    coins: ["5000000000000aepix"]
 validator:
   name: alice
-  staked: "100000000000000000000acanto"
+  staked: "100000000000000000000aepix"
 faucet:
   name: bob 
-  coins: ["10acanto"]
+  coins: ["10aepix"]
 build:
   binary: "cantod"
 init:
@@ -22,18 +22,18 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "acanto"
+        bond_denom: "aepix"
     mint:
       params:
-        mint_denom: "acanto"
+        mint_denom: "aepix"
     crisis:
       constant_fee:
-        denom: "acanto"
+        denom: "aepix"
     gov:
       deposit_params:
         min_deposit:
           - amount: "10000000"
-            denom: "acanto"
+            denom: "aepix"
     evm:
       params:
-        evm_denom: "acanto"
+        evm_denom: "aepix"

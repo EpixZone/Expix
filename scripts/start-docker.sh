@@ -11,7 +11,7 @@ echo "init canto with moniker=$MONIKER and chain-id=$CHAINID"
 ./cantod init $MONIKER --chain-id $CHAINID --home $DATA_DIR
 echo "prepare genesis: Allocate genesis accounts"
 ./cantod add-genesis-account \
-"$(./cantod keys show $KEY -a --home $DATA_DIR --keyring-backend test)" 1000000000000000000acanto,1000000000000000000stake \
+"$(./cantod keys show $KEY -a --home $DATA_DIR --keyring-backend test)" 1000000000000000000aepix,1000000000000000000stake \
 --home $DATA_DIR --keyring-backend test
 echo "prepare genesis: Sign genesis transaction"
 ./cantod gentx $KEY 1000000000000000000stake --keyring-backend test --home $DATA_DIR --keyring-backend test --chain-id $CHAINID

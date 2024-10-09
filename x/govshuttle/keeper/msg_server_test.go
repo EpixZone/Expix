@@ -168,7 +168,7 @@ func (suite *KeeperTestSuite) TestMsgExecutionByProposal() {
 					PropID:    0,
 					Recipient: "0x20F72265e2225837fd77C692e0781f720B93eF89",
 					Amount:    1234,
-					Denom:     "acanto",
+					Denom:     "aepix",
 				},
 			},
 			func(uint64, sdk.Msg) {},

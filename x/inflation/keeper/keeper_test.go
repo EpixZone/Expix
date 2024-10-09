@@ -31,7 +31,7 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 )
 
-var denomMint = "acanto"
+var denomMint = "aepix"
 
 type KeeperTestSuite struct {
 	suite.Suite

@@ -39,7 +39,7 @@ RUN cantod init $MONIKER --chain-id canto_9624-1
 
 # get genesis file
 RUN wget https://github.com/Canto-Network/Canto-Testnet-v2/raw/main/genesis.json -P $HOME/.cantod/config/
-RUN sed -i 's/minimum-gas-prices = ""/minimum-gas-prices = "0.0001acanto"/g' $HOME/.cantod/config/app.toml
+RUN sed -i 's/minimum-gas-prices = ""/minimum-gas-prices = "0.0001aepix"/g' $HOME/.cantod/config/app.toml
 RUN wget https://github.com/Canto-Network/Canto-Testnet-v2/raw/main/Docker/cantod.service -P $HOME/systemd/system/
 
 # run cantod
