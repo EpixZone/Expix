@@ -174,7 +174,7 @@ import (
 )
 
 // Name defines the application binary name
-const Name = "cantod"
+const Name = "epixd"
 
 var (
 	// DefaultNodeHome default home directories for the application daemon
