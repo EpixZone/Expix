@@ -19,7 +19,7 @@ func TestInitCmd(t *testing.T) {
 		"init",       // Test the init cmd
 		"canto-test", // Moniker
 		fmt.Sprintf("--%s=%s", cli.FlagOverwrite, "true"), // Overwrite genesis.json, in case it already exists
-		fmt.Sprintf("--%s=%s", flags.FlagChainID, "canto_9000-1"),
+		fmt.Sprintf("--%s=%s", flags.FlagChainID, "epix_4243-1"),
 	})
 
 	err := svrcmd.Execute(rootCmd, "", app.DefaultNodeHome)

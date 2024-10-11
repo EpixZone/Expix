@@ -124,7 +124,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 		// Initialize the chain
 		suite.app.InitChain(
 			&abci.RequestInitChain{
-				ChainId:         "canto_9001-1",
+				ChainId:         "epix_4242-1",
 				Validators:      []abci.ValidatorUpdate{},
 				ConsensusParams: app.DefaultConsensusParams,
 				AppStateBytes:   stateBytes,
@@ -134,7 +134,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 
 	suite.ctx = suite.app.BaseApp.NewContextLegacy(checkTx, tmproto.Header{
 		Height:          1,
-		ChainID:         "canto_9001-1",
+		ChainID:         "epix_4242-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 

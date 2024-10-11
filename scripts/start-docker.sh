@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY="mykey"
-CHAINID="canto_9000-1"
+CHAINID="epix_4243-1"
 MONIKER="mymoniker"
 DATA_DIR=$(mktemp -d -t canto-datadir.XXXXX)
 

@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	AppName = "cantod"
+	AppName = "epixd"
 	// Bech32Prefix defines the Bech32 prefix used for EthAccounts
-	Bech32Prefix = "canto"
+	Bech32Prefix = "epix"
 
 	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
 	Bech32PrefixAccAddr = Bech32Prefix
@@ -28,7 +28,7 @@ const (
 
 const (
 	// DisplayDenom defines the denomination displayed to users in client applications.
-	DisplayDenom = "canto"
+	DisplayDenom = "epix"
 	// BaseDenom defines to the default denomination used in canto (staking, EVM, governance, etc.)
 	BaseDenom = "aepix"
 )

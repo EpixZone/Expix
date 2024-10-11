@@ -17,7 +17,7 @@ RPC_PORT="854"
 IP_ADDR="0.0.0.0"
 
 KEY="mykey"
-CHAINID="canto_9000-1"
+CHAINID="epix_4243-1"
 MONIKER="mymoniker"
 
 ## default port prefixes for cantod

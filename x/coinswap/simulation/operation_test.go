@@ -68,7 +68,7 @@ func createTestApp(t *testing.T, isCheckTx bool) (*app.Canto, sdk.Context) {
 	consAddr, err := validator.GetConsAddr()
 	require.NoError(t, err)
 	ctx = ctx.WithBlockHeader(cmtproto.Header{Height: 1,
-		ChainID:         "canto_9001-1",
+		ChainID:         "epix_4242-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddr,
 	})

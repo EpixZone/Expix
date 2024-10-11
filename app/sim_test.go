@@ -88,7 +88,7 @@ func TestFullAppSimulation(t *testing.T) {
 	appOptions := make(simtestutil.AppOptionsMap, 0)
 	appOptions[flags.FlagHome] = DefaultNodeHome
 	appOptions[server.FlagInvCheckPeriod] = simcli.FlagPeriodValue
-	appOptions[flags.FlagChainID] = "canto_9000-1"
+	appOptions[flags.FlagChainID] = "epix_4243-1"
 
 	// TODO: shadowed
 	cantoApp := NewCanto(logger, db, nil, true, map[int64]bool{}, DefaultNodeHome, simcli.FlagPeriodValue, true, appOptions, fauxMerkleModeOpt, baseapp.SetChainID(types.TestnetChainID+"-1"))
@@ -275,7 +275,7 @@ func TestAppStateDeterminism(t *testing.T) {
 			appOptions.SetDefault(key, value)
 		}
 	}
-	appOptions.SetDefault(flags.FlagChainID, "canto_9000-1")
+	appOptions.SetDefault(flags.FlagChainID, "epix_4243-1")
 	appOptions.SetDefault(flags.FlagHome, DefaultNodeHome)
 	appOptions.SetDefault(server.FlagInvCheckPeriod, simcli.FlagPeriodValue)
 	if simcli.FlagVerboseValue {

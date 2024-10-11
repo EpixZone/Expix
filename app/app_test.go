@@ -105,7 +105,7 @@ func TestWorkingHash(t *testing.T) {
 	tmpDir := fmt.Sprintf("test-%s", time.Now().String())
 	db, err := dbm.NewGoLevelDB("test", tmpDir, nil)
 	require.NoError(t, err)
-	app := NewCanto(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 0, false, simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome), baseapp.SetChainID("canto_9000-1"))
+	app := NewCanto(log.NewNopLogger(), db, nil, true, map[int64]bool{}, DefaultNodeHome, 0, false, simtestutil.NewAppOptionsWithFlagHome(DefaultNodeHome), baseapp.SetChainID("epix_4243-1"))
 
 	// delete tmpDir
 	defer require.NoError(t, os.RemoveAll(tmpDir))
