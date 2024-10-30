@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/Canto-Network/Canto/v8/app"
-	cantod "github.com/Canto-Network/Canto/v8/cmd/cantod"
+	cantod "github.com/Canto-Network/Canto/v8/cmd/epixd"
 )
 
 func TestInitCmd(t *testing.T) {
